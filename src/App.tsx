@@ -2,6 +2,8 @@ import { useState } from 'react'
 import Header from './components/Header'
 import Sidebar from './components/Sidebar'
 import Dashboard from './components/Dashboard'
+import FloodMonitoring from './components/FloodMonitoring'
+import ChatBot from './components/ChatBot'
 import './App.css'
 
 function App() {
@@ -12,11 +14,11 @@ function App() {
       case 'dashboard':
         return <Dashboard />
       case 'monitoring':
-        return <div className="content-placeholder">Flood Monitoring Charts Coming Soon</div>
+        return <FloodMonitoring />
       case 'alerts':
         return <div className="content-placeholder">Alerts & Warnings Coming Soon</div>
       case 'chatbot':
-        return <div className="content-placeholder">Flood Assistant Chatbot Coming Soon</div>
+        return <ChatBot />
       case 'emergency':
         return <div className="content-placeholder">Emergency Contacts Coming Soon</div>
       case 'settings':
