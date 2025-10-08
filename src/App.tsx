@@ -1,34 +1,41 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import Header from './components/Header'
+import Sidebar from './components/Sidebar'
+import Dashboard from './components/Dashboard'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [activeSection, setActiveSection] = useState('dashboard')
+
+  const renderContent = () => {
+    switch (activeSection) {
+      case 'dashboard':
+        return <Dashboard />
+      case 'monitoring':
+        return <div className="content-placeholder">Flood Monitoring Charts Coming Soon</div>
+      case 'alerts':
+        return <div className="content-placeholder">Alerts & Warnings Coming Soon</div>
+      case 'chatbot':
+        return <div className="content-placeholder">Flood Assistant Chatbot Coming Soon</div>
+      case 'emergency':
+        return <div className="content-placeholder">Emergency Contacts Coming Soon</div>
+      case 'settings':
+        return <div className="content-placeholder">Settings Coming Soon</div>
+      default:
+        return <Dashboard />
+    }
+  }
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div className="app">
+      <Header title="Flood Management System" />
+      <div className="app-body">
+        <Sidebar activeSection={activeSection} setActiveSection={setActiveSection} />
+        <main className="main-content">
+          {renderContent()}
+        </main>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    </div>
   )
 }
 
