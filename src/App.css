@@ -961,4 +961,22 @@
   .message-content {
     max-width: 85%;
   }
+  
+  .alerts-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .alert-meta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  
+  .alert-actions {
+    flex-direction: column;
+  }
+  
+  .action-btn {
+    width: 100%;
+  }
 }
